@@ -1,0 +1,35 @@
+
+<p>
+     <a routerLink="/admin/products/new" class="btn btn-primary">New Products</a>
+</p>
+<input 
+#query
+(keyup)="filter(query.value)"
+type="text" class="form-control" placeholder="Search..">
+<br>
+
+
+
+
+
+<table class="table" border="5px" matSort>
+    <thead>
+        <tr>
+            <th mat-sort-header="title" class="sorting">Title</th>
+            <th mat-sort-header="price" class="sorting">Price</th>
+            <th></th>
+        </tr>
+    </thead>
+            <tbody>
+                    <tr *ngFor="let p of filteredProducts">
+                        <td>{{p.title}}</td>
+                        <td>{{p.price | currency:'USD':true}}</td>
+                        <td>
+                            <a [routerLink] ="['/admin/products/',p.key]">Edit</a>
+                        </td>
+                    </tr>
+                </tbody>
+            
+        </table>
+
+    <mat-paginator [pageSizeOptions]="[5,10]" showFirstLastButtons></mat-paginator>

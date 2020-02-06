@@ -1,0 +1,11 @@
+.card-title-category{
+    text-transform: capitalize;
+}
+
+.card-footer{
+    padding: 0;
+}
+
+.card{
+    margin-bottom: 15%;
+}
